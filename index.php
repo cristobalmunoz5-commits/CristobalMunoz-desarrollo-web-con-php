@@ -9,7 +9,7 @@ session_start();
 
 if(isset($_SESSION['user_id'])){
     // el usuario esta logeado //
-    header("location: ../../dashboard/");
+    header("location: backoffice/");
     exit(); // siempre que haya un redireccionamiento //
 } else {
     // si no hay sesion, es pq no hay usuario //
