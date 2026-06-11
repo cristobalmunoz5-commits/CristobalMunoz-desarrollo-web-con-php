@@ -9,7 +9,7 @@ session_destroy();
 
 echo 'Largo: ' . count($_SESSION);
 
-if(count($_SESSION)==0){
+if (count($_SESSION) == 0) {
     header("Location: ../../");
-    exit(); 
+    exit();
 }

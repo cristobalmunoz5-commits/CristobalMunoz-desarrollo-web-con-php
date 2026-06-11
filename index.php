@@ -7,12 +7,12 @@ session_start();
 // var_dump($_SESSION);
 // echo '</pre>';
 
-if(isset($_SESSION['user_id'])){
+if (isset($_SESSION['user_id'])) {
     // el usuario esta logeado //
     header("location: backoffice/");
     exit(); // siempre que haya un redireccionamiento //
 } else {
     // si no hay sesion, es pq no hay usuario //
-        header("location: user/login");
-        exit(); // siempre que haya un redireccionamiento //
+    header("location: user/login");
+    exit(); // siempre que haya un redireccionamiento //
 }
