@@ -112,7 +112,7 @@ $_SESSION['ruta'] = $ruta;
                         <!--begin::Col-->
                         <div class="col-12">
 
-                            <?php if ($_SESSION['errores']['items'] > 0) {
+                            <?php if (count($_SESSION['errores']['items']) >0) {
                                 if ($_SESSION['errores']['items']['email']) { ?>
                                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                         <strong>Error Email: </strong> <?php echo  $_SESSION['errores']['items']['email']; ?>
