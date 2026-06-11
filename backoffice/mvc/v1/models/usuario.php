@@ -1,0 +1,21 @@
+<?php
+
+// CREATE TABLE usuario (
+//    id INT PRIMARY KEY AUTO_INCREMENT,
+//    firstname VARCHAR(30) NOT NULL,
+//    lastname VARCHAR(30) NOT NULL,
+//    username VARCHAR(50) NOT NULL UNIQUE,
+//    rol int NOT NULL UNIQUE,
+//    datecrate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+//    dateupdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+//    active BOOLEAN NOT NULL DEFAULT FALSE
+//);
+//
+//CREATE TABLE usuario_codigo (
+//    id INT PRIMARY KEY AUTO_INCREMENT,
+//    usuarioID INT NOT NULL,
+//    codigo VARCHAR(6) NOT NULL,
+//    datecrate TIMESTAMP NOT NULL,
+//    active BOOLEAN NOT NULL DEFAULT TRUE
+//);
+//

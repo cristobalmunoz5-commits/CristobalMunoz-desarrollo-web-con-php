@@ -1,5 +1,13 @@
 <?php
 
+session_start();
+
+if(!issets($_SESSION['user_id'])){
+    // si no SESSION es pq no hay usuario
+    header("location: ../../");
+    exit(); // siempre que haya un redireccionamiento
+}
+
 class Conexion
 {
     private $connection;
@@ -35,12 +43,12 @@ class Conexion
             die(":( Se levanto la exepcion en la conexion a la base de datos: " + $ex->getMessage());
         }
     }
+
+    public function closeConnection()
+    {
+        if ($this->connection) {
+            mysqli_close($this->connection);
+            return 1;
+        } else return 0;
+    }
 }
-
-$conexion = new Conexion();
-
-echo '<pre>';
-print_r($_SERVER);
-echo '</pre>';
-echo '<hr>';
-$con = $conexion->getConnection();
