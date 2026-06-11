@@ -313,7 +313,7 @@ $_SESSION['titulos'] = ['webTitle' => 'Programacion Pagina Web en PHP con adminL
                         <!-- /.direct-chat-infos -->
                         <img
                           class="direct-chat-img"
-                          src="../../assets/img/user1-128x128.jpg"
+                          src="../assets/img/user1-128x128.jpg"
                           alt="message user image"
                         />
                         <!-- /.direct-chat-img -->
@@ -333,7 +333,7 @@ $_SESSION['titulos'] = ['webTitle' => 'Programacion Pagina Web en PHP con adminL
                         <!-- /.direct-chat-infos -->
                         <img
                           class="direct-chat-img"
-                          src="../../assets/img/user3-128x128.jpg"
+                          src="../assets/img/user3-128x128.jpg"
                           alt="message user image"
                         />
                         <!-- /.direct-chat-img -->
@@ -351,7 +351,7 @@ $_SESSION['titulos'] = ['webTitle' => 'Programacion Pagina Web en PHP con adminL
                         <!-- /.direct-chat-infos -->
                         <img
                           class="direct-chat-img"
-                          src="../../assets/img/user1-128x128.jpg"
+                          src="../assets/img/user1-128x128.jpg"
                           alt="message user image"
                         />
                         <!-- /.direct-chat-img -->
@@ -389,7 +389,7 @@ $_SESSION['titulos'] = ['webTitle' => 'Programacion Pagina Web en PHP con adminL
                           <a href="#">
                             <img
                               class="contacts-list-img"
-                              src="../../assets/img/user1-128x128.jpg"
+                              src="../assets/img/user1-128x128.jpg"
                               alt="User Avatar"
                             />
 
@@ -408,7 +408,7 @@ $_SESSION['titulos'] = ['webTitle' => 'Programacion Pagina Web en PHP con adminL
                           <a href="#">
                             <img
                               class="contacts-list-img"
-                              src="../../assets/img/user7-128x128.jpg"
+                              src="../assets/img/user7-128x128.jpg"
                               alt="User Avatar"
                             />
 
@@ -427,7 +427,7 @@ $_SESSION['titulos'] = ['webTitle' => 'Programacion Pagina Web en PHP con adminL
                           <a href="#">
                             <img
                               class="contacts-list-img"
-                              src="../../assets/img/user3-128x128.jpg"
+                              src="../assets/img/user3-128x128.jpg"
                               alt="User Avatar"
                             />
 
@@ -446,7 +446,7 @@ $_SESSION['titulos'] = ['webTitle' => 'Programacion Pagina Web en PHP con adminL
                           <a href="#">
                             <img
                               class="contacts-list-img"
-                              src="../../assets/img/user5-128x128.jpg"
+                              src="../assets/img/user5-128x128.jpg"
                               alt="User Avatar"
                             />
 
@@ -465,7 +465,7 @@ $_SESSION['titulos'] = ['webTitle' => 'Programacion Pagina Web en PHP con adminL
                           <a href="#">
                             <img
                               class="contacts-list-img"
-                              src="../../assets/img/user6-128x128.jpg"
+                              src="../assets/img/user6-128x128.jpg"
                               alt="User Avatar"
                             />
 
@@ -484,7 +484,7 @@ $_SESSION['titulos'] = ['webTitle' => 'Programacion Pagina Web en PHP con adminL
                           <a href="#">
                             <img
                               class="contacts-list-img"
-                              src="../../assets/img/user8-128x128.jpg"
+                              src="../assets/img/user8-128x128.jpg"
                               alt="User Avatar"
                             />
 
