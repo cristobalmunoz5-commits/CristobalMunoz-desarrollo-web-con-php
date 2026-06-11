@@ -7,6 +7,10 @@ if(!isset($_SESSION['user_id'])){
   header("location: ../user/login/");
   exit(); // siempre que haya un redireccionamiento //
 }
+
+$ruta = ['assets' => '../', 'components' => ''];
+$_SESSION['ruta'] = $ruta;
+
 ?>
 
 <!doctype html>
