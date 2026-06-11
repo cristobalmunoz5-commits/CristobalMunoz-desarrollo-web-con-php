@@ -10,6 +10,8 @@ if(!isset($_SESSION['user_id'])){
 
 $ruta = ['assets' => '../', 'components' => ''];
 $_SESSION['ruta'] = $ruta;
+$_SESSION['titulos'] = ['webTitle' => 'Programacion Pagina Web en PHP con adminLTE'];
+
 
 ?>
 
@@ -18,7 +20,7 @@ $_SESSION['ruta'] = $ruta;
   <!--begin::Head-->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Programacion Pagina Web en PHP con adminLTE</title>
+    <title><?php echo $_SESSION['titulos']['webTitle'] ?></title>
 
     <!--begin::Accessibility Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
@@ -311,7 +313,7 @@ $_SESSION['ruta'] = $ruta;
                         <!-- /.direct-chat-infos -->
                         <img
                           class="direct-chat-img"
-                          src="../assets/img/user1-128x128.jpg"
+                          src="../../assets/img/user1-128x128.jpg"
                           alt="message user image"
                         />
                         <!-- /.direct-chat-img -->
@@ -331,7 +333,7 @@ $_SESSION['ruta'] = $ruta;
                         <!-- /.direct-chat-infos -->
                         <img
                           class="direct-chat-img"
-                          src="../assets/img/user3-128x128.jpg"
+                          src="../../assets/img/user3-128x128.jpg"
                           alt="message user image"
                         />
                         <!-- /.direct-chat-img -->
@@ -349,7 +351,7 @@ $_SESSION['ruta'] = $ruta;
                         <!-- /.direct-chat-infos -->
                         <img
                           class="direct-chat-img"
-                          src="../assets/img/user1-128x128.jpg"
+                          src="../../assets/img/user1-128x128.jpg"
                           alt="message user image"
                         />
                         <!-- /.direct-chat-img -->
@@ -387,7 +389,7 @@ $_SESSION['ruta'] = $ruta;
                           <a href="#">
                             <img
                               class="contacts-list-img"
-                              src="../assets/img/user1-128x128.jpg"
+                              src="../../assets/img/user1-128x128.jpg"
                               alt="User Avatar"
                             />
 
@@ -406,7 +408,7 @@ $_SESSION['ruta'] = $ruta;
                           <a href="#">
                             <img
                               class="contacts-list-img"
-                              src="../assets/img/user7-128x128.jpg"
+                              src="../../assets/img/user7-128x128.jpg"
                               alt="User Avatar"
                             />
 
@@ -425,7 +427,7 @@ $_SESSION['ruta'] = $ruta;
                           <a href="#">
                             <img
                               class="contacts-list-img"
-                              src="../assets/img/user3-128x128.jpg"
+                              src="../../assets/img/user3-128x128.jpg"
                               alt="User Avatar"
                             />
 
@@ -444,7 +446,7 @@ $_SESSION['ruta'] = $ruta;
                           <a href="#">
                             <img
                               class="contacts-list-img"
-                              src="../assets/img/user5-128x128.jpg"
+                              src="../../assets/img/user5-128x128.jpg"
                               alt="User Avatar"
                             />
 
@@ -463,7 +465,7 @@ $_SESSION['ruta'] = $ruta;
                           <a href="#">
                             <img
                               class="contacts-list-img"
-                              src="../assets/img/user6-128x128.jpg"
+                              src="../../assets/img/user6-128x128.jpg"
                               alt="User Avatar"
                             />
 
@@ -482,7 +484,7 @@ $_SESSION['ruta'] = $ruta;
                           <a href="#">
                             <img
                               class="contacts-list-img"
-                              src="../assets/img/user8-128x128.jpg"
+                              src="../../assets/img/user8-128x128.jpg"
                               alt="User Avatar"
                             />
 
@@ -573,7 +575,7 @@ $_SESSION['ruta'] = $ruta;
       </main>
       <!--end::App Main-->
       <!--begin::Footer-->
-      <?php include_once('components/footer-v1.php'); ?>
+      <?php include_once($ruta['components'] . 'components/footer-v1.php'); ?>
       <!--end::Footer-->
     </div>
     <!--end::App Wrapper-->
