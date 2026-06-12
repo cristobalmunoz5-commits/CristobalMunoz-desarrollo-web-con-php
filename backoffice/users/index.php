@@ -183,12 +183,24 @@ $data = $modelo->getAll();
                                                                     <li>
                                                                         <a class="dropdown-item" href="#">Editar</a>
                                                                     </li>
-                                                                    <li>
-                                                                        <a class="dropdown-item" href="#">Apagar</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="dropdown-item" href="#">Encender</a>
-                                                                    </li>
+                                                                    <?php if ($registro->isActive() == 1) { ?>
+                                                                        <li>
+                                                                            <form action="./poweOff/" method="post">
+                                                                                <input type="text" class="d-none" name="id" value="<?php echo $registro->getId() ?>">
+                                                                                <button type="submit" class="dropdown-item" href="#">Apagar</a>
+                                                                            </form>
+                                                                            <!-- <a class="dropdown-item" href="#">Apagar Link</a> -->
+                                                                        </li>
+                                                                    <?php } ?>
+                                                                    <?php if ($registro->isActive() == 0) { ?>
+                                                                        <li>
+                                                                            <form action="./poweOn/" method="post">
+                                                                                <input type="text" class="d-none" name="id" value="<?php echo $registro->getId() ?>">
+                                                                                <button type="submit" class="dropdown-item" href="#">Encender</a>
+                                                                            </form>
+                                                                            <!-- <a class="dropdown-item" href="#">Encender Link</a> -->
+                                                                        </li>
+                                                                    <?php } ?>
                                                                 </ul>
                                                             </div>
                                                         </td>

@@ -139,4 +139,57 @@ class Usuario
         $con->closeConnection();
         return $lista;
     }
+
+    public function addNew(Usuario $_nuevo)
+    {
+        $con = new Conexion();
+        $query = "INSERT INTO usuario (firstname, lastname, username, password, rol)";
+
+        try {
+            $var1 = $_nuevo->getNombre();
+            $var2 = $_nuevo->getApellido();
+            $var3 = $_nuevo->getUsername();
+            $var4 = $_nuevo->getPassword();
+            $var1 = $_nuevo->getRol();
+
+            $stmt = $con->getConnection()->prepare($squery);
+            $stmt->bind_param(
+                "sssss",
+                $var1,
+                $var2,
+                $var3,
+                $var4,
+                $var5
+            );
+            $rs = $stmt->execute();
+            $stmt->close();
+            $con->closeConnection();
+            return $rs ? true : false;
+        } catch (\Throwable $th) {
+            echo 'Error :( al agregar un nuevo registro: ' . $th->getMessage();
+            return false;
+        }
+    }
+
+    public function powerOn($_id)
+    {
+        $con = new Conexion();
+        try {
+            $query = "UPDATE usuario SET active = 1 WHERE id = md5(?)";
+            $stmt = $con->getConnection()->prepare($query);
+            $stmt->bind_param(
+                "i",
+                $_id
+            );
+
+            $rs = $stmt->execute();
+            $stmt->close();
+            $con->closeConnection();
+
+            return $rs ? true : false;
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+            return false;
+        }
+    }
 }
