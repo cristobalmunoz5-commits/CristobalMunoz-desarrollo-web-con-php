@@ -7,7 +7,7 @@
 //    username VARCHAR(50) NOT NULL UNIQUE,
 //    password VARCHAR(32) NOT NULL,
 //    rol int NOT NULL UNIQUE,
-//    datecrate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+//    datecreate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 //    dateupdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 //    active BOOLEAN NOT NULL DEFAULT FALSE
 //);
@@ -34,8 +34,8 @@ class Usuario
     private $username;
     private $password;
     private $rol;
-    private $dataCreate;
-    private $dataUpdate;
+    private $dateCreate;
+    private $dateUpdate;
     private $active;
 
     public function __construct() {}
@@ -67,11 +67,11 @@ class Usuario
     }
     public function getFechaCreado()
     {
-        return $this->dataCreate;
+        return $this->dateCreate;
     }
     public function getFechaActualizado()
     {
-        return $this->dataUpdate;
+        return $this->dateUpdate;
     }
     public function isActive()
     {
@@ -112,14 +112,14 @@ class Usuario
     {
         $lista = [];
         $con = new Conexion();
-        $query = "SELECT id, firstname, lastname, username, password, rol, datacreate, dataupdate, active FROM usuario ORDER BY id ASC";
+        $query = "SELECT id, firstname, lastname, username, password, rol, datecreate, dateupdate, active FROM usuario ORDER BY id ASC";
         $rs = mysqli_query($con->getConnection(), $query);
-        if($rs){
-            while($registro = mysqli_fetch_assoc($rs)){
+        if ($rs) {
+            while ($registro = mysqli_fetch_assoc($rs)) {
                 $registro['active'] = $registro['active'] == 1 ? true : false;
                 $objeto = [
                     "id" => $registro['id'],
-                    "firstname" => $registro['firstname']    
+                    "firstname" => $registro['firstname']
                 ];
                 array_push($lista, $objeto);
             }
@@ -127,5 +127,5 @@ class Usuario
         }
         $con->closeConnection();
         return $lista;
-    }   
+    }
 }

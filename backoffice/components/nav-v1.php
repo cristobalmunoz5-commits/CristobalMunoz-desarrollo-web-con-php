@@ -1,3 +1,12 @@
+<?php
+// para proteger el FOLDER de COMPONENTS usamos esto: //
+if(!isset($_SESSION['user_id'])){
+    // si no SESSION es pq no hay usuario
+    header("location: ../");
+    exit(); // siempre que haya un redireccionamiento
+}
+?>
+
 <nav class="app-header navbar navbar-expand bg-body">
   <!--begin::Container-->
   <div class="container-fluid">

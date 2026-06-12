@@ -94,7 +94,6 @@ $_SESSION['ruta'] = $ruta;
                                 <li class="breadcrumb-item"><a href="/CristobalMunoz-desarrollo-web-con-php">Backoffice</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Usuarios</li>
                                 <li class="breadcrumb-item"><button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#mantenedorAgregar">Agregar +</li>
-
                             </ol>
                         </div>
                     </div>
@@ -112,23 +111,25 @@ $_SESSION['ruta'] = $ruta;
                         <!--begin::Col-->
                         <div class="col-12">
 
-                            <?php if (count($_SESSION['errores']['items']) >0) {
-                                if ($_SESSION['errores']['items']['email']) { ?>
+                            <?php if (!empty($_SESSION['errores']['items'])): ?>
+
+                                <?php if (!empty($_SESSION['errores']['items']['email'])): ?>
                                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                        <strong>Error Email: </strong> <?php echo  $_SESSION['errores']['items']['email']; ?>
+                                        <strong>Error Email:</strong>
+                                        <?= $_SESSION['errores']['items']['email']; ?>
                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                     </div>
-                                <?php
-                                }
-                                if ($_SESSION['errores']['items']['name']) { ?>
+                                <?php endif; ?>
+
+                                <?php if (!empty($_SESSION['errores']['items']['name'])): ?>
                                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                        <strong>Error Nombre: </strong> <?php echo  $_SESSION['errores']['items']['name']; ?>
+                                        <strong>Error Nombre:</strong>
+                                        <?= $_SESSION['errores']['items']['name']; ?>
                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                     </div>
-                            <?php
-                                }
-                            }
-                            ?>
+                                <?php endif; ?>
+
+                            <?php endif; ?>
                         </div>
                         <!--end::Col-->
                         <!--begin::Col-->
