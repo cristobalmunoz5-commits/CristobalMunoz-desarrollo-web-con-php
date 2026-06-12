@@ -45,7 +45,7 @@ class Usuario
     {
         return $this->id;
     }
-    public function getName()
+    public function getNombre()
     {
         return $this->firstname;
     }
@@ -103,6 +103,14 @@ class Usuario
     {
         $this->rol = $_n;
     }
+    public function setFechaCreado($_n)
+    {
+        $this->dateCreate = $_n;
+    }
+    public function setFechaActualizado($_n)
+    {
+        $this->dateUpdate = $_n;
+    }
     public function setActivo($_n)
     {
         $this->active = $_n;
@@ -116,11 +124,14 @@ class Usuario
         $rs = mysqli_query($con->getConnection(), $query);
         if ($rs) {
             while ($registro = mysqli_fetch_assoc($rs)) {
-                $registro['active'] = $registro['active'] == 1 ? true : false;
-                $objeto = [
-                    "id" => $registro['id'],
-                    "firstname" => $registro['firstname']
-                ];
+                $objeto = new Usuario();
+                $objeto->setId($registro['id']);
+                $objeto->setNombre($registro['firstname']);
+                $objeto->setApellido($registro['lastname']);
+                $objeto->setUsername($registro['username']);
+                $objeto->setFechaCreado($registro['datecreate']);
+                $objeto->setFechaActualizado($registro['dateupdate']);
+                $objeto->setActivo($registro['active']);
                 array_push($lista, $objeto);
             }
             mysqli_free_result($rs);

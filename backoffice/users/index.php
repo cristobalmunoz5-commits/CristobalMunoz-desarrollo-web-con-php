@@ -1,11 +1,17 @@
 <?php
 
-session_start();
+
 $ruta = ['assets' => '../../', 'components' => '../'];
 $_SESSION['ruta'] = $ruta;
 
-?>
+// para los datos
+include_once '../mvc/v1/conexion.php';
+include_once '../mvc/models/usuario.php';
 
+$modelo = new Usuario();
+$data = $modelo->getAll();
+
+?>
 <!doctype html>
 <html lang="es">
 <!--begin::Head-->
@@ -152,61 +158,53 @@ $_SESSION['ruta'] = $ruta;
                                                 <th style="width: 40px" scope="col">Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr class="align-middle">
-                                                <td>1.</td>
-                                                <td>Sebastican Cabezas</td>
-                                                <td><span class="badge text-bg-success">Activo</span></td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-sm tn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            <i class="bi bi-list"></i>
-                                                        </button>
-                                                        <ul class="dropdown-menu" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 40px);" data-popper-placement="bottom-start">
-                                                            <li>
-                                                                <a class="dropdown-item" href="#">Ver</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="dropdown-item" href="#">Editar</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="dropdown-item" href="#">Apagar</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="dropdown-item" href="#">Encender</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="align-middle">
-                                                <td>2.</td>
-                                                <td>Marcela Cabezas</td>
-                                                <td><span class="badge text-bg-success">Activo</span></td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-sm tn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                            <i class="bi bi-list"></i>
-                                                        </button>
-                                                        <ul class="dropdown-menu" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 40px);" data-popper-placement="bottom-start">
-                                                            <li>
-                                                                <a class="dropdown-item" href="#">Ver</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="dropdown-item" href="#">Editar</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="dropdown-item" href="#">Apagar</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="dropdown-item" href="#">Encender</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                        <?php if (count($data) > 0) {
+                                            $num = 1; ?>
+                                            <tbody>
+                                                <?php foreach ($data as $registro) { ?>
 
-                                        </tbody>
+                                                    <tr class="align-middle">
+                                                        <td><?php echo $num; ?> </td>
+                                                        <td><?php echo $registro->getNombre() . ' ' . $registro->getApellido(); ?> </td>
+                                                        <td>
+                                                            <span class="badge text-bg-<?php echo $registro->isActive() == 1 ? 'success' : 'danger'; ?>">
+                                                                <?php echo $registro->isActive() == 1 ? 'Activado' : 'Desactivado'; ?>
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="btn-group">
+                                                                <button type="button" class="btn btn-sm tn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                    <i class="bi bi-list"></i>
+                                                                </button>
+                                                                <ul class="dropdown-menu" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 40px);" data-popper-placement="bottom-start">
+                                                                    <li>
+                                                                        <a class="dropdown-item" href="#">Ver</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a class="dropdown-item" href="#">Editar</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a class="dropdown-item" href="#">Apagar</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a class="dropdown-item" href="#">Encender</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                <?php
+                                                    $num++;
+                                                } ?>
+                                            </tbody>
+                                        <?php } else { ?>
+                                            <tbody>
+                                                <tr class="align-middle">
+                                                    <td colspan="4" class="text-center">Sin Datos en la base de Datos
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        <?php } ?>
                                     </table>
                                 </div>
                                 <!--end::Body-->
